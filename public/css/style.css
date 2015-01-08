@@ -1,0 +1,7 @@
+li.active > a {
+    font-weight: 500;
+}
+
+.repair-page img {
+    margin-bottom: 10px;
+}
