@@ -2,10 +2,21 @@
 
 @section('content')
 
-<h2>Page Create</h2>
+<h2>{{ $page->id ? 'Page Update' : 'Page Create' }}</h2>
 
+@if(count($errors) > 0)
+<div class="alert alert-warning">
 
-{{ Form::model($page, ['route' => ['admin.pages.create']]) }}
+    <ul style="padding-left: 15px;">
+        @foreach($errors as $error)
+        <li>{{{ $error }}}</li>
+        @endforeach
+    </ul>
+
+</div>
+@endif
+
+{{ Form::model($page) }}
 
     <div class="form-group">
         {{ Form::text('path', null, ['class' => 'form-control', 'placeholder' => 'Path']) }}
@@ -17,7 +28,7 @@
         {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Content']) }}
     </div>
 
-    {{ Form::submit('Save', ['class' => 'btn btn-default']); }}
+    {{ Form::submit($page->id ? 'Update' : 'Save', ['class' => 'btn btn-default']); }}
 
 {{ Form::close() }}
 
