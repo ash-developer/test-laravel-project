@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 style="height: 36px; line-height: 36px;">
+<h2>
     Pages
 
     <div class="pull-right">
@@ -23,7 +23,7 @@
         <th>#</th>
         <th>Title</th>
         <th>Path</th>
-        <th class="text-center" style="width: 100px;">Actions</th>
+        <th class=" actions-column text-center">Actions</th>
     </tr>
     </thead>
     <tbody>

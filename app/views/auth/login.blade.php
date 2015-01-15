@@ -1,20 +1,33 @@
 @extends('layouts.master')
 
+@section('title')
+  Вход
+@stop
+
 @section('content')
 
-<h2 style="margin: 0; padding: 0; padding-bottom: 10px;">Вход</h2>
+<h2>Вход</h2>
 
-<div style="width: 250px; margin: 0 auto;">
+<div class="form-container">
 
-<form method="post">
-  <div class="form-group">
-    <input type="email" class="form-control" placeholder="Email" name="email">
+  @if ($error = Session::get('error'))
+  <div class="alert alert-warning">
+    {{ $error }}
   </div>
-  <div class="form-group">
-    <input type="password" class="form-control" placeholder="Пароль" name="password">
-  </div>
-  <button type="submit" class="btn btn-default">Войти</button>
-</form>
+  @endif
+
+  {{Form::open()}}
+
+    <div class="form-group">
+      {{Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email'])}}
+    </div>
+    <div class="form-group">
+      {{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Пароль'])}}
+    </div>
+
+    {{Form::submit('Войти', ['class' => 'btn btn-default'])}}
+
+  {{Form::close()}}
 
 </div>
 

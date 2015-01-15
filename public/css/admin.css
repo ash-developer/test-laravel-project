@@ -1,0 +1,10 @@
+h2 {
+  height: 36px;
+  line-height: 36px;
+}
+.alert ul {
+  padding-left: 15px;
+}
+.actions-column {
+  width: 100px;
+}
